@@ -44,12 +44,11 @@ Employees can:
 
 ## Architecture and Design
 
-This system follows the **Model-View-Controller (MVC)** design pattern:
-- **Model**: Defines data structures such as farmers, users, and products.
-- **View**: Renders user-facing pages using Razor views.
-- **Controller**: Handles user requests and bridges the model and views.
-
-This separation ensures maintainable code, clean architecture, and easy integration with Entity Framework Core, which is why i chose it
+Although there are multiple architecture patterns to use, I chose MVC for Agri-Energy Connect Platform, it helps organise the development process, allowing me to work on the data (Model), interface (View), and logic (Controller) at once. With this, Agri-Energy Connect can easily be scaled, maintained, and updated over time. Using MVC makes it easier to manage platforms features such as The Green Energy Market Place. This system follows the Model-View-Controller (MVC) design pattern:
+•	Model: Defines data structures such as farmers, users, and products.
+•	View: Renders user-facing pages using Razor views.
+•	Controller: Handles user requests and bridges the model and views.
+This separation ensures maintainable code, clean architecture, and easy integration with Entity Framework Core.
 
 ---
 
