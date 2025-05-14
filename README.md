@@ -44,11 +44,10 @@ Employees can:
 
 ## Architecture and Design
 
-This system follows the **Model-View-Controller (MVC)** design pattern:
-- **Model**: Defines data structures such as farmers, users, and products.
-- **View**: Renders user-facing pages using Razor views.
-- **Controller**: Handles user requests and bridges the model and views.
-
+Although there are multiple architecture patterns to use, I chose MVC for Agri-Energy Connect Platform, it helps organise the development process, allowing me to work on the data (Model), interface (View), and logic (Controller) at once. With this, Agri-Energy Connect can easily be scaled, maintained, and updated over time. Using MVC makes it easier to manage platforms features such as The Green Energy Market Place. This system follows the Model-View-Controller (MVC) design pattern:
+- Model: Defines data structures such as farmers, users, and products.
+- View: Renders user-facing pages using Razor views.
+- Controller: Handles user requests and bridges the model and views.
 This separation ensures maintainable code, clean architecture, and easy integration with Entity Framework Core.
 
 ---
@@ -56,6 +55,9 @@ This separation ensures maintainable code, clean architecture, and easy integrat
 ## Database Setup
 
 This application uses **Microsoft SQL Server**, managed using **Entity Framework Core Migrations**.
+
+### Why I Chose SSMS
+I chose SQL Server Management Studio (SSMS) because it provides a user-friendly interface for managing SQL Server databases, making it easy to write queries, manage tables, and visualise data relationships. It also integrates easily with ASP.NET Core applications, supporting tools like Entity Framework Core for smooth database migrations and updates.
 
 ### Main Tables
 - `Farmers`
@@ -117,7 +119,7 @@ Unzip the project folder. Paste it into your repo folder where all your other vi
 
 ## Demo Video
 
-(Insert your video link here)
+[Demo Video](https://youtu.be/YVa4T5H6Wao)
 
 ---
 
@@ -150,10 +152,14 @@ Unzip the project folder. Paste it into your repo folder where all your other vi
 
 ---
 
-
----
-
 ## References
 
-- Microsoft Documentation: [docs.microsoft.com](https://docs.microsoft.com)
-- Entity Framework Core: [EF Core Docs](https://learn.microsoft.com/en-us/ef/core/)
+- **Bootstrap**, 2025. *Forms*. [Online] Available at: [https://getbootstrap.com/docs/5.3/forms/overview/](https://getbootstrap.com/docs/5.3/forms/overview/) [Accessed 5 May 2025].
+
+- **GeeksforGeeks**, 2019. *CSS Forms Styling*. [Online] Available at: [https://www.geeksforgeeks.org/css-styling-forms/](https://www.geeksforgeeks.org/css-styling-forms/) [Accessed 6 May 2025].
+
+- **Microsoft**, 2024a. *Session in ASP.NET Core*. [Online] Available at: [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-8.0#session-state](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-8.0#session-state) [Accessed 25 April 2025].
+
+- **Microsoft**, 2024b. *Tutorial: Add sorting, filtering, and paging - ASP.NET MVC with EF Core*. [Online] Available at: [https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page?view=aspnetcore-9.0](https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page?view=aspnetcore-9.0) [Accessed 26 April 2025].
+
+- **Microsoft**, 2024c. *Views in ASP.NET Core MVC*. [Online] Available at: [https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview?view=aspnetcore-8.0#viewbag-viewdata-and-strongly-typed-views](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview?view=aspnetcore-8.0#viewbag-viewdata-and-strongly-typed-views) [Accessed 25 April 2025].
