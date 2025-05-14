@@ -117,7 +117,7 @@ Unzip the project folder. Paste it into your repo folder where all your other vi
 
 ## Demo Video
 
-[(Insert your video link here)](https://youtu.be/YVa4T5H6Wao)
+[(Demo)](https://youtu.be/YVa4T5H6Wao)
 
 ---
 
