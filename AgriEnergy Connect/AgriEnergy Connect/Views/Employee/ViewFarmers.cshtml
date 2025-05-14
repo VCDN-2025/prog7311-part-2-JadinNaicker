@@ -1,0 +1,66 @@
+﻿@model List<AgriEnergyConnect.Models.Farmer>
+
+@{
+    ViewBag.Title = "View Farmers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Author: Bootstrap
+    Title:Fonts
+    Date: N/A
+    Avaliability: https://getbootstrap.com/docs/5.3/forms/overview/-->
+
+<style>
+    /*Author: GeeksforGeeks
+          Title: CSS Forms Styling
+          Date: 2 January 2019
+              Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+        */
+    body { /*Sets page background colour*/
+        background-color: #FAF9F6;
+    }
+
+    .farmer-card { /*Farmer card styling*/
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+        transition: transform 0.2s ease;
+    }
+
+        .farmer-card:hover { /*Hover styling effect for card*/
+            transform: translateY(-5px);
+        }
+
+    .farmer-title {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #2E7D32;
+    }
+
+    .farmer-info {
+        color: #6D4C41;
+        margin: 5px 0;
+    }
+    /*Author: GeeksforGeeks
+          Title: CSS Forms Styling
+          Date: 2 January 2019
+              Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+        */
+</style>
+
+<div class="container mt-4">
+    <h2 class="text-dark mb-4">All Registered Farmers</h2>
+
+    <div class="row">
+        @foreach (var farmer in Model)
+        {
+            <div class="col-md-4">
+                <div class="farmer-card">
+                    <p class="farmer-title">@farmer.Name</p> <!--Shows name of the farmer -->
+                    <p class="farmer-info"><strong>Email:</strong> @farmer.Email</p> <!-- Shows email of the farmer -->
+                </div>
+            </div>
+        }
+    </div>
+</div>

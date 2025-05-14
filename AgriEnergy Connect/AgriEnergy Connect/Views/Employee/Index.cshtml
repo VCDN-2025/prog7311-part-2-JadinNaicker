@@ -1,0 +1,147 @@
+﻿@model List<AgriEnergyConnect.Models.Product>
+
+@{
+    ViewBag.Title = "All Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Author: Bootstrap
+    Title:Fonts
+    Date: N/A
+    Avaliability: https://getbootstrap.com/docs/5.3/forms/overview/-->
+
+<style>
+    /*Author: GeeksforGeeks
+          Title: CSS Forms Styling
+          Date: 2 January 2019
+              Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+        */
+    body { /*Page bacground colour*/
+        background-color: #FAF9F6;
+    }
+
+    .filter-form { /*Filter form styling*/
+        background-color: white;
+        border-left: 6px solid #6D4C41;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+    }
+
+    .btn-blue { /*Button styling*/
+        background-color: #6D4C41;
+        color: white;
+        border: none;
+    }
+
+        .btn-blue:hover { /*Hover styling for button*/
+            background-color: #6D4C41;
+        }
+
+    .btn-brown { /*Button styling*/
+        background-color: #6D4C41;
+        color: white;
+        border: none;
+    }
+
+        .btn-brown:hover { /*Hover styling for button*/
+            background-color: #5e4036;
+        }
+
+    .product-card { /* Styling for product card  */
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        background-color: white;
+        margin-bottom: 20px;
+    }
+
+    .product-title {
+        font-weight: bold;
+        color: #212121;
+    }
+
+    .product-info {
+        color: #6D4C41;
+    }
+    /*Author: GeeksforGeeks
+          Title: CSS Forms Styling
+          Date: 2 January 2019
+              Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+        */
+</style>
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-dark">All Products</h2>
+        <a href="@Url.Action("AddFarmer")" class="btn btn-brown">+ Add Farmer</a>
+    </div>
+
+    <!-- Filter form for product -->
+    <div class="filter-form">
+        @using (Html.BeginForm("FilterProducts", "Employee", FormMethod.Get))
+        {
+            <div class="row g-3">
+                <!-- Filters by category -->
+                <div class="col-md-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select name="category" id="category" class="form-control">
+                        <option value="">Filter By Category</option>
+                        @foreach (var cat in ViewBag.Categories as List<string>)
+                        {
+                            <option value="@cat">@cat</option>
+                        }
+                    </select>
+                </div>
+
+                <!-- Filters by production start date -->
+                <div class="col-md-2">
+                    <label for="fromDate" class="form-label">From</label>
+                    <input type="date" name="fromDate" id="fromDate" class="form-control" />
+                </div>
+
+                <!-- Filters by production end date -->
+                <div class="col-md-2">
+                    <label for="toDate" class="form-label">To</label>
+                    <input type="date" name="toDate" id="toDate" class="form-control" />
+                </div>
+
+                <div class="col-md-3">
+                    <!-- Filters by farmer email -->
+                    <label for="farmerEmail" class="form-label">Farmer Email</label>
+                    <select name="farmerEmail" id="farmerEmail" class="form-control">
+                        <option value="">Filter By Farmer</option>
+                        @foreach (var email in ViewBag.FarmerEmails as List<string>)
+                        {
+                            <option value="@email">@email</option>
+                        }
+                    </select>
+                </div>
+
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-blue w-100">Filter</button>  <!-- Filtering button -->
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="row">
+        <!-- Displays all products by farmers -->
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="product-card">
+                    <h4 class="product-title">@item.Name</h4>
+                    <h5 class="product-info"> @item.Farmer?.Email</h5>
+                    <p class="product-info"><strong>Category:</strong> @item.Category</p>
+                    <p class="product-info"><strong>Description:</strong> @item.Description</p>
+                    <p class="product-info"><strong>Production Date:</strong> @item.ProductionDate.ToShortDateString()</p>
+                    <p class="product-info"><strong>Price:</strong> R @item.Price</p>
+                   
+                    
+                </div>
+            </div>
+        }
+    </div>
+</div>

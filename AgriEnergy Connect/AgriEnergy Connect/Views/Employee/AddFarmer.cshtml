@@ -1,0 +1,73 @@
+﻿@model AgriEnergyConnect.Models.Farmer
+@{
+    ViewBag.Title = "Add Farmer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Author: Bootstrap
+    Title:Fonts
+    Date: N/A
+    Avaliability: https://getbootstrap.com/docs/5.3/forms/overview/-->
+
+<style>
+    /*Author: GeeksforGeeks
+          Title: CSS Forms Styling
+          Date: 2 January 2019
+              Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+        */
+    body { /* Sets page background colour */
+        background-color: #FAF9F6;
+    }
+
+    .form-box {
+        background-color: white;
+        
+        padding: 30px;
+        border-left: 6px solid #6D4C41;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+    }
+
+        .form-box h2 {
+            color: #6D4C41;
+        }
+
+    .btn-brown { /* Button colour */
+        background-color: #6D4C41;
+        color: white;
+        border: none;
+        width: 100%;
+    }
+
+        .btn-brown:hover { /* Hover effect foe button */
+            background-color: #5e4036;
+        }
+    /*Author: GeeksforGeeks
+          Title: CSS Forms Styling
+          Date: 2 January 2019
+              Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+        */
+</style>
+
+<div class="form-box">
+    <h2>Add New Farmer</h2>
+
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <!-- Farmers name field -->
+            <label>Name</label>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "e.g. Ayush Ramkisoon" })
+        </div>
+        <div class="form-group">
+            <!-- Farmers email field -->
+            <label>Email</label>
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "e.g. Ayush@gmail.com" })
+        </div>
+        <div class="form-group">
+            <!-- Farmers password field -->
+            <label>Password</label>
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "e.g. farmer123" })
+        </div>
+        <button type="submit" class="btn btn-brown mt-3">Add Farmer</button>   <!-- Button for adding farmers once they completed the form -->
+    }
+</div>

@@ -1,0 +1,143 @@
+﻿@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+@{
+    var userRole = HttpContextAccessor.HttpContext?.Session.GetString("UserRole");
+    var userEmail = HttpContextAccessor.HttpContext?.Session.GetString("UserEmail");
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AgriEnergy_Connect</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!--Author: Bootstrap
+    Title:Fonts
+    Date: N/A
+    Avaliability: https://getbootstrap.com/docs/5.3/forms/overview/-->
+    <style>
+        /*Author: GeeksforGeeks
+              Title: CSS Forms Styling
+              Date: 2 January 2019
+                  Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+            */
+        body {
+            background-color: #FAF9F6;
+            color: #212121;
+        }
+
+        .navbar {
+            background-color: #2E7D32;
+        }
+
+        .navbar-brand, .nav-link, .navbar-text {
+            color: #FAF9F6 !important;
+        }
+
+            .nav-link:hover {
+                color: #FBC02D !important;
+            }
+
+        .footer {
+            background-color: #6D4C41;
+            color: #FAF9F6;
+            padding: 10px 0;
+        }
+
+
+        main {
+            padding-top: 20px;
+        }
+
+        .container {
+            max-width: 1100px;
+        }
+        /*Author: GeeksforGeeks
+              Title: CSS Forms Styling
+              Date: 2 January 2019
+                  Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+            */
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-dark border-bottom shadow-sm">
+            <div class="container-fluid">
+				<a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index"><img src="~/images/Navbar logo.png" style="height:90px; width: 100px" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a> <!--Both roles can access this page-->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-controller="Home" asp-action="ComingSoon">Farmers Hub</a> <!--Both roles can access this page-->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-muted" asp-controller="Home" asp-action="ComingSoon">Educational Resources</a> <!--Both roles can access this page-->
+                        </li>
+
+                        @if (userRole == "Farmer") //Only farmers can access these pages
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Farmer" asp-action="Index">Green Energy Market Place</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Farmer" asp-action="AddProduct">Add My Product</a>
+                            </li>
+                        }
+                        else if (userRole == "Employee") //Only employees can access these pages
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Employee" asp-action="Index">Green Energy Market Place</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Employee" asp-action="AddFarmer">Add a Farmer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Employee" asp-action="ViewFarmers">View Farmers</a>
+                            </li>
+                        }
+
+                       
+                    </ul>
+
+                    <ul class="navbar-nav ms-auto">
+                        @if (userEmail != null)
+                        {
+                            <li class="nav-item">
+                                <span class="navbar-text me-2">Welcome, @userEmail</span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Author: Bootstrap
+    Title:Fonts
+    Date: N/A
+    Avaliability: https://getbootstrap.com/docs/5.3/forms/overview/-->
+
+<style>
+    /*Author: GeeksforGeeks
+      Title: CSS Forms Styling
+      Date: 2 January 2019
+          Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+    */
+    body { /* Sets body bacground and font used*/
+        background-color: #FAF9F6;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .login-wrapper { /* Centers the login box vertically and horizontally */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 90vh;
+    }
+
+    .login-container { /* Styles the login box container */
+        background-color: #fff;
+        padding: 40px 30px;
+        border-radius: 16px;
+        
+        width: 100%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        border-left: 8px solid #2E7D32;
+    }
+
+        .login-container h2 { /* Heading styling */
+            color: #2E7D32;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+    .form-label { /* Styles label */
+        font-weight: 600;
+        color: #212121;
+        margin-bottom: 5px;
+    }
+
+    .form-control { /*Styles input box*/
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 6px;
+        height: 45px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 20px;
+        transition: border-color 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #2E7D32;
+            box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+        }
+
+    .btn-primary { /* Button styling */
+        background-color: #2E7D32;
+        border: none;
+        height: 45px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        border-radius: 6px;
+        width: 100%;
+    }
+
+        .btn-primary:hover { /* Hover effect for button*/
+            background-color: #256028;
+        }
+
+    .text-danger { /*Error message styling*/
+        color: #F44336;
+        font-size: 14px;
+        margin-top: 10px;
+        text-align: center;
+    }
+    /*Author: GeeksforGeeks
+          Title: CSS Forms Styling
+          Date: 2 January 2019
+              Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+        */
+</style>
+
+<div class="login-wrapper">
+    <div class="login-container">
+        <h2>Agri-Energy Connect</h2>
+
+        <!-- Login form -->
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { autocomplete = "off" }))
+        {
+            <div class="form-group">
+                <!-- Email field -->
+                <label class="form-label">Email</label>
+                @Html.TextBox("email", null, new
+                    {
+                        @class = "form-control",
+                        placeholder = "Enter your email"
+                    })
+            </div>
+
+            <div class="form-group">
+                <!-- Password field -->
+                <label class="form-label">Password</label>
+                @Html.Password("password", new
+                    {
+                        @class = "form-control",
+                        placeholder = "Enter your password",
+                         autocomplete = "new-password"
+                    
+                    })
+            </div>
+
+            <div class="form-group">
+                <!-- Dropdown for roles -->
+                <label class="form-label">Role</label>
+                @Html.DropDownList("role", new SelectList(ViewBag.RoleList as List<string>), "Select Role", new { @class = "form-control" })
+            </div>
+
+            <div style="text-align: center;">
+                <img src="~/images/agri-energy connect logo.png" style="width: 275px;" /> <!-- Image of logo -->
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Login</button> <!-- Login button -->
+
+            @if (!string.IsNullOrEmpty(ViewBag.Message as string))
+            {
+                <p class="text-danger">@ViewBag.Message</p>
+            }
+        }
+    </div>
+</div>

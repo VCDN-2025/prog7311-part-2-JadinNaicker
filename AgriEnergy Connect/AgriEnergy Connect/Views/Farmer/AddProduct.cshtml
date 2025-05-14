@@ -1,0 +1,115 @@
+﻿@model AgriEnergyConnect.Models.Product
+
+@{
+    ViewBag.Title = "Add Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!--Author: Bootstrap
+    Title:Fonts
+    Date: N/A
+    Avaliability: https://getbootstrap.com/docs/5.3/forms/overview/-->
+
+<style>
+    /*Author: GeeksforGeeks
+          Title: CSS Forms Styling
+          Date: 2 January 2019
+              Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+        */
+    body {
+        background-color: #FAF9F6;
+    }
+
+    .form-container {
+        background-color: white;
+        max-width: 500px;
+        margin: 40px auto;
+        padding: 30px;
+        border-left: 6px solid #2E7D32;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.07);
+    }
+
+        .form-container h2 {
+            color: #2E7D32;
+        }
+
+    .btn-green {
+        background-color: #2E7D32;
+        color: white;
+        border: none;
+        width: 100%;
+    }
+
+        .btn-green:hover {
+            background-color: #256028;
+        }
+
+    .text-danger {
+        color: #d32f2f;
+    }
+
+    .alert-info {
+        background-color: #e0f7fa;
+        color: #00796b;
+        padding: 10px;
+        border-left: 5px solid #0288d1;
+        margin-bottom: 15px;
+    }
+    /*Author: GeeksforGeeks
+          Title: CSS Forms Styling
+          Date: 2 January 2019
+              Avaliability: https://www.geeksforgeeks.org/css-styling-forms/
+        */
+</style>
+
+<div class="form-container">
+    <h2>Add Product</h2>
+
+    @using (Html.BeginForm("AddProduct", "Farmer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken() <!--protect against Cross-Site Request Forgery-->
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @if (!string.IsNullOrEmpty(ViewBag.Message as string))
+        {
+            <div class="alert alert-info">@ViewBag.Message</div>
+        }
+
+        <div class="form-group">
+            <!--Product Name-->
+            <label for="Name">Name</label>
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "e.g. Wind Turbine" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <!--Product description-->
+            <label for="Description">Description</label>
+            @Html.TextBoxFor(m => m.Description, new { @class = "form-control", placeholder = "Enter Description" })
+            @Html.ValidationMessageFor(m => m.Description, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <!--Product Price-->
+            <label for="Price">Price</label>
+            @Html.TextBoxFor(m => m.Price, new { @class = "form-control", placeholder = "e.g. R10000" })
+            @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <!--Product Category-->
+            <label for="Category">Category</label>
+            @Html.TextBoxFor(m => m.Category, new { @class = "form-control", placeholder = "e.g. Wind" })
+            @Html.ValidationMessageFor(m => m.Category, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <!--Product Date-->
+            <label for="ProductionDate">Production Date</label>
+            @Html.TextBoxFor(m => m.ProductionDate, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(m => m.ProductionDate, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit" class="btn btn-green mt-3">Submit</button>
+    }
+</div>
