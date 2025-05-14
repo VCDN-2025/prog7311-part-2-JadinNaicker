@@ -49,7 +49,7 @@ This system follows the **Model-View-Controller (MVC)** design pattern:
 - **View**: Renders user-facing pages using Razor views.
 - **Controller**: Handles user requests and bridges the model and views.
 
-This separation ensures maintainable code, clean architecture, and easy integration with Entity Framework Core.
+This separation ensures maintainable code, clean architecture, and easy integration with Entity Framework Core, which is why i chose it
 
 ---
 
