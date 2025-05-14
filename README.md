@@ -56,6 +56,9 @@ This separation ensures maintainable code, clean architecture, and easy integrat
 
 This application uses **Microsoft SQL Server**, managed using **Entity Framework Core Migrations**.
 
+### Why I Chose SSMS
+I chose SQL Server Management Studio (SSMS) because it provides a user-friendly interface for managing SQL Server databases, making it easy to write queries, manage tables, and visualise data relationships. It also integrates easily with ASP.NET Core applications, supporting tools like Entity Framework Core for smooth database migrations and updates.
+
 ### Main Tables
 - `Farmers`
 - `Products`
