@@ -149,12 +149,9 @@ Unzip the project folder. Paste it into your repo folder where all your other vi
 
 ---
 
-
----
-
 ## References
 
- **Bootstrap**, 2025. *Forms*. [Online] Available at: [https://getbootstrap.com/docs/5.3/forms/overview/](https://getbootstrap.com/docs/5.3/forms/overview/) [Accessed 5 May 2025].
+- **Bootstrap**, 2025. *Forms*. [Online] Available at: [https://getbootstrap.com/docs/5.3/forms/overview/](https://getbootstrap.com/docs/5.3/forms/overview/) [Accessed 5 May 2025].
 
 - **GeeksforGeeks**, 2019. *CSS Forms Styling*. [Online] Available at: [https://www.geeksforgeeks.org/css-styling-forms/](https://www.geeksforgeeks.org/css-styling-forms/) [Accessed 6 May 2025].
 
