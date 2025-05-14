@@ -45,9 +45,9 @@ Employees can:
 ## Architecture and Design
 
 Although there are multiple architecture patterns to use, I chose MVC for Agri-Energy Connect Platform, it helps organise the development process, allowing me to work on the data (Model), interface (View), and logic (Controller) at once. With this, Agri-Energy Connect can easily be scaled, maintained, and updated over time. Using MVC makes it easier to manage platforms features such as The Green Energy Market Place. This system follows the Model-View-Controller (MVC) design pattern:
-•	Model: Defines data structures such as farmers, users, and products.
-•	View: Renders user-facing pages using Razor views.
-•	Controller: Handles user requests and bridges the model and views.
+- Model: Defines data structures such as farmers, users, and products.
+- View: Renders user-facing pages using Razor views.
+- Controller: Handles user requests and bridges the model and views.
 This separation ensures maintainable code, clean architecture, and easy integration with Entity Framework Core.
 
 ---
@@ -154,5 +154,12 @@ Unzip the project folder. Paste it into your repo folder where all your other vi
 
 ## References
 
-- Microsoft Documentation: [docs.microsoft.com](https://docs.microsoft.com)
-- Entity Framework Core: [EF Core Docs](https://learn.microsoft.com/en-us/ef/core/)
+ **Bootstrap**, 2025. *Forms*. [Online] Available at: [https://getbootstrap.com/docs/5.3/forms/overview/](https://getbootstrap.com/docs/5.3/forms/overview/) [Accessed 5 May 2025].
+
+- **GeeksforGeeks**, 2019. *CSS Forms Styling*. [Online] Available at: [https://www.geeksforgeeks.org/css-styling-forms/](https://www.geeksforgeeks.org/css-styling-forms/) [Accessed 6 May 2025].
+
+- **Microsoft**, 2024a. *Session in ASP.NET Core*. [Online] Available at: [https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-8.0#session-state](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-8.0#session-state) [Accessed 25 April 2025].
+
+- **Microsoft**, 2024b. *Tutorial: Add sorting, filtering, and paging - ASP.NET MVC with EF Core*. [Online] Available at: [https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page?view=aspnetcore-9.0](https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/sort-filter-page?view=aspnetcore-9.0) [Accessed 26 April 2025].
+
+- **Microsoft**, 2024c. *Views in ASP.NET Core MVC*. [Online] Available at: [https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview?view=aspnetcore-8.0#viewbag-viewdata-and-strongly-typed-views](https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview?view=aspnetcore-8.0#viewbag-viewdata-and-strongly-typed-views) [Accessed 25 April 2025].
